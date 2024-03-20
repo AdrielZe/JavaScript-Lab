@@ -2,7 +2,7 @@ function tratarErroELancar(erro){
    //  throw new Error('...')
    //   throw 10
    //  throw 'mensagem'
- throw{
+ throw{ //Lança um erro
     nome:erro.name,
     msg:erro.message,
     date: new Date
