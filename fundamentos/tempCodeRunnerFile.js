@@ -1,0 +1,1 @@
+console.log(obj2.exec());
