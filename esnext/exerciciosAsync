@@ -1,0 +1,45 @@
+// Crie uma função que após 2 segundos, dobre o resultado do número passado como parâmetro. Essa função deverá retornar uma promise. Use o setTimeOut como temporizador.
+
+// async function dobrarApos2Segundos(number){
+//         return new Promise((resolve) => {
+//             setTimeout(() => resolve(number*2), 2000)
+//         })
+// }
+
+
+// async function sumNumbers(x){
+//     let a = await dobrarApos2Segundos(10)
+//     let b = await dobrarApos2Segundos(20)
+//     let c = await dobrarApos2Segundos(30)
+//     // let p = consol.log('asdjio') - testando catch
+//     return (a+b+c+x)
+// }
+
+// sumNumbers(100)
+// .then(console.log)
+// .catch(console.log("erro"))
+
+//Contagem de números
+// function contagemRegressiva(number){
+//     return new Promise((resolve) => {
+//      setTimeout(() => {
+//         console.log(number)
+//            number-= 1;
+//            if(number >= 1) contagemRegressiva(number)
+//         },1000)   
+//         resolve(number)
+//         }
+//     )}
+
+
+// contagemRegressiva(10)
+// .then(console.log)
+
+async function somaAssincrona(x,y){
+    return new Promise( (resolve) => {
+        setTimeout(() => resolve(x+y), 2000)
+    })
+}
+
+somaAssincrona(2,10)
+.then(console.log)

@@ -1,4 +1,3 @@
-//SEM promise... ( usando esquema de callback ) 
 const http = require('http')
 
 const getTurma = (letra, callBack) => {
@@ -22,12 +21,16 @@ const getTurma = (letra, callBack) => {
     })
 }
 
+//Recurso do ES8
+//Objetivo de simplificar o uso de promises...
 
-    Promise.all([getTurma('A'), getTurma('B'),getTurma('C')])
-         .then((turmas) => [].concat(...turmas))
-         .then((alunos) => alunos.map(aluno => aluno.nome))
-         .then((turmas) => console.log(turmas))
-         .catch(e => console.log(e.message))
-    
+let obterAlunos = async () => { // Sempre que usar await, tem que ter o Async
+    const turmaA = await getTurma('A')
+    const turmaB = await getTurma('B')
+    const turmaC = await getTurma('C')
+    return [].concat(turmaA,turmaB,turmaC)
+}//Retorna um objeto AsyncFunction
 
-
+obterAlunos()
+     .then(alunos => alunos.map(alunos => alunos.nome))
+     .then(nomes => console.log(nomes))
